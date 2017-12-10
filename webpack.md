@@ -79,7 +79,6 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
             const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
             const glob = require('glob')
             const CleanWebpackPlugin = require('clean-webpack-plugin');
-            const InlineWebpackPlugin = require('./inline-webpack-plugin')
             
             const NODE_ENV = process.env.NODE_ENV
             const CDN_BASE_DIR = 'oga-activity'
@@ -140,7 +139,6 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
                   warnings: false
                 }),
                 new ExtractTextPlugin(isPro?'css/[name]-[hash:8].css':'css/[name].css'),
-                new InlineWebpackPlugin({ name: 'webpack-runtime' }),
                 new webpack.optimize.ModuleConcatenationPlugin()
               ],
               devServer:{
