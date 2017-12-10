@@ -4,8 +4,72 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
 格式转换给浏览器使用   
    1. 新建项目   
    2. 执行npm init  新建package.json 文件 npm install webpack --save-dev     
-   3. 在项目目录下新建webpack.config.js
-   4. 编写文件 webpack 
+   3. 在项目目录下新建webpack.config.js  使用commonJs的写法暴露出一个对象
+  entry: 配置文件 入口 可以是单一入口 也可以是多入口   参数对象 key:入口名称 value: 入口位置    
+  output  配置打包文件后的格式规范   
+  moudule  配置模块 各种loader 
+  plugins  配置插件 根据不同需要配置不同功能的插件  
+  devServer 配置开发环境下的服务器    ]
+  
+  output
+    
+              output 对象 包含 
+              filename://输出文件名称   
+              path: //输出文件位置     
+              publicPath:  //输出文件 引入资源位置  
+  
+  
+  
+  module  
+  
+              通过使用loader  webpack可以对不同的格式文件进行特殊处理 
+              可以吧es6或es7预防转换成大多浏览器兼容的代码
+              module对象包含rules[]  
+              rules下 是对象 
+              例
+                 module:{
+                        rules: [
+                            {
+                              test: /\.css$/,
+                              use: [ 'style-loader', 'css-loader' ]
+                            }
+                          ]
+                    },
+               
+               
+    
+  plugin   
+              
+              插件
+              列举插件作用 清除dist目录
+              分离js中css  当然 在loader 中也要进行特殊处理  
+              模块热更新插件 提升开发效率     
+              
+              
+  devServer
+  
+            hot:  boolean  是否启用模块热替换 
+            host  开启服务名称 希望外部访问 可替换成0.0.0.0
+            inline:  是否启用内联模式   
+            proxy: 是否启用代理  
+            compress 是否开启网络压缩
+            
+  
+  
+  webpack优化  
+  
+          生产环境下  在插件中添加js压缩  html压缩 在loader  添加压缩  
+          生成带有hash值文件  便于静态资源版本管理   
+          将公用库文件在入口文件提取出来  在插件中使用  new webpack.optimize.CommonsChunkPlugin 提取公共库  
+          如果是单页面应用将公共的css提取出来 
+          在jsloader中使用cacheh缓存 使rebuild更快  
+          在jsloader中 使用exclude将node-module排除   
+          在Webpack3.0 版本中，提供了一个新的功能：Scope Hoisting，
+          又译作“作用域提升”。在Webpack2中，打包后的文件里每个模块都会被包装在一个单独的闭包中，这些闭包会导致JS执行速度变慢，
+          Scope Hoisting则可以将所有模块打包进一个大的闭包中。只需在配置文件中添加一个新的插件，
+          就可以让 Webpack 打包出来的代码文件更小、运行的更快：
+          
+  编写文件 webpack 
      如下
      
             const webpack = require('webpack');
@@ -134,71 +198,6 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
                                    //配置webpack开发服务功能
                                    devServer:{}
                        }
-  entry: 配置文件 入口 可以是单一入口 也可以是多入口   参数对象 key:入口名称 value: 入口位置    
-  output  配置打包文件后的格式规范   
-  moudule  配置模块 各种loader 
-  plugins  配置插件 根据不同需要配置不同功能的插件  
-  devServer 配置开发环境下的服务器    ]
-  
-  output
-    
-              output 对象 包含 
-              filename://输出文件名称   
-              path: //输出文件位置     
-              publicPath:  //输出文件 引入资源位置  
-  
-  
-  
-  module  
-  
-              通过使用loader  webpack可以对不同的格式文件进行特殊处理 
-              可以吧es6或es7预防转换成大多浏览器兼容的代码
-              module对象包含rules[]  
-              rules下 是对象 
-              例
-                 module:{
-                        rules: [
-                            {
-                              test: /\.css$/,
-                              use: [ 'style-loader', 'css-loader' ]
-                            }
-                          ]
-                    },
-               
-               
-    
-  plugin   
-              
-              插件
-              列举插件作用 清除dist目录
-              分离js中css  当然 在loader 中也要进行特殊处理  
-              模块热更新插件 提升开发效率     
-              
-              
-  devServer
-  
-            hot:  boolean  是否启用模块热替换 
-            host  开启服务名称 希望外部访问 可替换成0.0.0.0
-            inline:  是否启用内联模式   
-            proxy: 是否启用代理  
-            compress 是否开启网络压缩
-            
-  
-  
-  webpack优化  
-  
-          生产环境下  在插件中添加js压缩  html压缩 在loader  添加压缩  
-          生成带有hash值文件  便于静态资源版本管理   
-          将公用库文件在入口文件提取出来  在插件中使用  new webpack.optimize.CommonsChunkPlugin 提取公共库  
-          如果是单页面应用将公共的css提取出来 
-          在jsloader中使用cacheh缓存 使rebuild更快  
-          在jsloader中 使用exclude将node-module排除   
-          在Webpack3.0 版本中，提供了一个新的功能：Scope Hoisting，
-          又译作“作用域提升”。在Webpack2中，打包后的文件里每个模块都会被包装在一个单独的闭包中，这些闭包会导致JS执行速度变慢，
-          Scope Hoisting则可以将所有模块打包进一个大的闭包中。只需在配置文件中添加一个新的插件，
-          就可以让 Webpack 打包出来的代码文件更小、运行的更快：
-          
-          
           
               
               
