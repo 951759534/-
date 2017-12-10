@@ -9,7 +9,7 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
   output  配置打包文件后的格式规范   
   moudule  配置模块 各种loader 
   plugins  配置插件 根据不同需要配置不同功能的插件  
-  devServer 配置开发环境下的服务器    ]
+  devServer 配置开发环境下的服务器
   
   output
     
