@@ -81,8 +81,8 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
             const CleanWebpackPlugin = require('clean-webpack-plugin');
             
             const NODE_ENV = process.env.NODE_ENV
-            const CDN_BASE_DIR = 'oga-activity'
-            const CDN_HOST = '//land.xiaomi.net'
+            const CDN_BASE_DIR = ''
+            const CDN_HOST = ''
             const isPro = (NODE_ENV === 'pro')
             const webpackConfig = {
               entry : {
