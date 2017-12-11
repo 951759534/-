@@ -5,12 +5,27 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
    1. 新建项目   
    2. 执行npm init  新建package.json 文件 npm install webpack --save-dev     
    3. 在项目目录下新建webpack.config.js  使用commonJs的写法暴露出一个对象
+          webpack.config.js分为五个大部分
+  
+                module.exports={
+                                   //入口文件的配置项
+                                   entry:{},
+                                   //出口文件的配置项
+                                   output:{},
+                                   //模块：例如解读CSS,图片如何转换，压缩
+                                   module:{},
+                                   //插件，用于生产模版和各项功能
+                                   plugins:[],
+                                   //配置webpack开发服务功能
+                                   devServer:{}
+                       }
   entry: 配置文件 入口 可以是单一入口 也可以是多入口   参数对象 key:入口名称 value: 入口位置    
   output  配置打包文件后的格式规范   
   moudule  配置模块 各种loader 
   plugins  配置插件 根据不同需要配置不同功能的插件  
   devServer 配置开发环境下的服务器
-  
+          
+              
   output
     
               output 对象 包含 
@@ -181,22 +196,5 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
               }))
             }
             module.exports = webpackConfig
-       
-         webpack.config.js分为五个大部分
-  
-                module.exports={
-                                   //入口文件的配置项
-                                   entry:{},
-                                   //出口文件的配置项
-                                   output:{},
-                                   //模块：例如解读CSS,图片如何转换，压缩
-                                   module:{},
-                                   //插件，用于生产模版和各项功能
-                                   plugins:[],
-                                   //配置webpack开发服务功能
-                                   devServer:{}
-                       }
-          
-              
               
     
