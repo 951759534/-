@@ -38,7 +38,7 @@ webpack可以看作是模块打包机  分析项目结构 将Javascript转换打
   module  
   
               通过使用loader  webpack可以对不同的格式文件进行特殊处理 
-              可以吧es6或es7预防转换成大多浏览器兼容的代码
+              可以把es6或es7预防转换成大多浏览器兼容的代码
               module对象包含rules[]  
               rules下 是对象 
               例
