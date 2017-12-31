@@ -37,7 +37,7 @@ redux 源码总共775行 值得学习的的思想有很多 看我注释一一道
            }
            
            compose(funcA, funcB, funcC) 变为 compose(funcA(funcB(funcC()))) //如果有多层回调时  利用函数式编程的方式将代码右移
-           compose.js
+    
            
  
 > createStore.js   
