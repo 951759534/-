@@ -380,7 +380,7 @@ redux 源码总共775行 值得学习的的思想有很多 看我注释一一道
                 export default thunk;
  
  
-     >   中间原理  
+     >   中间件原理  
           触发createStore  
           判断是否有enhancer如果有 
           调用enhancer 如果没有 enhancer 走正常dispatch流程
