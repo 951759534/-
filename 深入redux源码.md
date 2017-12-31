@@ -1,4 +1,4 @@
-redux 源码总共775行 值得学习的的思想有很多 看我注释一一道来   :)
+redux 源码总共775行 值得学习的的思想有很多 看我注释一一道来 
 > index.js
       
       function isCrushed() {}
@@ -380,12 +380,17 @@ redux 源码总共775行 值得学习的的思想有很多 看我注释一一道
                 export default thunk;
  
  
- >   中间原理   触发createStore  判断是否有enhancer 如果有 
-      调用enhancer 如果没有 enhancer 走正常dispatch流程
-      巧妙之处在于 compose  将一层层回调转换为横向扩展 
-     reduce 
-     action 作为介质  store作为基石  dispatch作为发射器  
-     middle作为中间件 reducer作为一个过滤件 完成单向数据的流动 redux 只是一个工具 如果想要和react一起用 需要配合react-redux一起使用
+     >   中间原理  
+          触发createStore  
+          判断是否有enhancer如果有 
+          调用enhancer 如果没有 enhancer 走正常dispatch流程
+          
+         
+         巧妙之处在于 compose  将一层层回调转换为横向扩展 
+         reduce 
+         action 作为介质  store作为基石  dispatch作为发射器  
+         middle作为中间件 reducer作为一个过滤件 完成单向数据的流动 
+         redux 只是一个工具 如果想要和react一起用 需要配合react-redux一起使用
            
          
 
