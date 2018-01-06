@@ -223,7 +223,7 @@
                   connectHOC = connectAdvanced, // connect() 的返回值
                   mapStateToPropsFactories = defaultMapStateToPropsFactories, // 将redux中store转换为props
                   mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories, // 将 dispach 转换为 props
-                  mergePropsFactories = defaultMergePropsFactories,  // 将
+                  mergePropsFactories = defaultMergePropsFactories,  // 将多个参数返回的对象 合并成一个
                   selectorFactory = defaultSelectorFactory
                 } = {}) {
                   return function connect(
@@ -250,7 +250,7 @@
                   
                       getDisplayName: name => `Connect(${name})`,
                 
-                      shouldHandleStateChanges: Boolean(mapStateToProps),  // 是监听传入组件变化
+                      shouldHandleStateChanges: Boolean(mapStateToProps),  // 判断是否传入mapStateToProps
                 
                       initMapStateToProps,
                       initMapDispatchToProps,
